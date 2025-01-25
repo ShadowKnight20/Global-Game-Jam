@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: efc572112e133b3409dd0debbde5f867
+  productGUID: 2280e950d8a78b14f8c23dd1b2be0be0
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Game Jam Global
+  productName: Mayor Bard
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -103,7 +103,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 1
+  fullscreenMode: 3
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -160,7 +160,8 @@ PlayerSettings:
   resetResolutionOnWindowResize: 0
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
-  applicationIdentifier: {}
+  applicationIdentifier:
+    Standalone: com.DefaultCompany.Mayor-Bard
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -769,16 +770,16 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Game Jam Global
-  metroPackageVersion: 
+  metroPackageName: MayorBard
+  metroPackageVersion: 1.0.0.0
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Game Jam Global
+  metroApplicationDescription: Mayor Bard
   wsaImages: {}
-  metroTileShortName: 
+  metroTileShortName: Mayor Bard
   metroTileShowName: 0
   metroMediumTileShowName: 0
   metroLargeTileShowName: 0
@@ -846,10 +847,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 06126aec-cbc9-4584-85b4-1fe63eb1b2e3
+  cloudProjectId: c8479468-04a7-483d-bc27-d910def2b290
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Game Jam Global
+  projectName: Mayor Bard
   organizationId: kperovs15
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
