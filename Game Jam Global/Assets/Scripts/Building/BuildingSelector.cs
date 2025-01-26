@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BuildingSelector : MonoBehaviour
 {
-    public BuildingUI buildingUI;
+    //public BuildingUI buildingUI;
 
     void Update()
     {
@@ -16,7 +16,7 @@ public class BuildingSelector : MonoBehaviour
                 BuildingResourceHandler building = hit.collider.GetComponent<BuildingResourceHandler>();
                 if (building != null)
                 {
-                    buildingUI.SelectBuilding(building);
+                    //buildingUI.SelectBuilding(building);
                 }
             }
         }

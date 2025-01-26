@@ -15,10 +15,6 @@ public class BuildingSystem : MonoBehaviour
     //Shortcut key for each are:
     public GameObject tavern;   // 1
     public GameObject townHall; // 2
-    public GameObject farm;     // 3
-    public GameObject sawMill;  // 4
-    public GameObject mine;     // 5
-    public GameObject house;    // 6
 
     public string notEnoughResources;
 
@@ -26,7 +22,7 @@ public class BuildingSystem : MonoBehaviour
 
     private PlaceableObject objectToPlace;
 
-    private ResourceManager resourceManager;
+    private GameManagerControler resourceManager;
 
     private Dictionary<GameObject, (int wood, int stone, int gold)> buildingCosts;
 
@@ -35,23 +31,7 @@ public class BuildingSystem : MonoBehaviour
     private void Start()
     {
         // Ensure ResourceManager exists
-        resourceManager = FindObjectOfType<ResourceManager>();
-
-        // Initialize the dictionary after the GameObjects have been assigned
-        buildingCosts = new Dictionary<GameObject, (int, int, int)>
-        {
-        { tavern, (0, 0, 0) },
-        { townHall, (0, 0, 0) },
-        { farm, (0, 0, 0) },
-        { sawMill, (0, 0, 0) },
-        { mine, (10, 0, 0) },
-        { house, (10, 5, 5) }
-    };
-        // Debugging: Print dictionary contents
-        foreach (var kvp in buildingCosts)
-        {
-            Debug.Log($"Building: {kvp.Key?.name}, Wood: {kvp.Value.wood}, Stone: {kvp.Value.stone}, Gold: {kvp.Value.gold}");
-        }
+        resourceManager = FindObjectOfType<GameManagerControler>();
     }
 
     private void Awake()
@@ -64,12 +44,8 @@ public class BuildingSystem : MonoBehaviour
     private void Update() //Temp with buttons to spawn buildings
     {
         CameraMovement cameraMovement = Camera.main.GetComponent<CameraMovement>();
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {InitializeWithObject(tavern); cameraMovement.offset = new Vector3(0, 45f, -15f);}
-        else if (Input.GetKeyDown(KeyCode.Alpha2)) {InitializeWithObject(townHall); cameraMovement.offset = new Vector3(0, 45f, -15f);}
-        else if (Input.GetKeyDown(KeyCode.Alpha3)) {InitializeWithObject(farm); cameraMovement.offset = new Vector3(0, 45f, -15f);}
-        else if (Input.GetKeyDown(KeyCode.Alpha4)) {InitializeWithObject(sawMill); cameraMovement.offset = new Vector3(0, 45f, -15f);}
-        else if (Input.GetKeyDown(KeyCode.Alpha5)){InitializeWithObject(mine); cameraMovement.offset = new Vector3(0, 45f, -15f);}
-        else if (Input.GetKeyDown(KeyCode.Alpha6)) {InitializeWithObject(house); cameraMovement.offset = new Vector3(0, 45f, -15f);}
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {InitializeWithObject(tavern); cameraMovement.offset = new Vector3(0, 25f, -15f);}
+        else if (Input.GetKeyDown(KeyCode.Alpha2)) {InitializeWithObject(townHall); cameraMovement.offset = new Vector3(0, 25f, -15f);}
         if (!objectToPlace) return;
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -89,9 +65,7 @@ public class BuildingSystem : MonoBehaviour
             }
             else
             {
-                string missingResources = GetMissingResourcesMessage(objectToPlace.gameObject);
-                Debug.Log($"Not enough resources to build! Missing: {missingResources}");
-                Destroy(objectToPlace.gameObject);
+                //Destroy(objectToPlace.gameObject);
                 cameraMovement.offset = new Vector3(0, 10f, -15f);
             }
         }
@@ -151,21 +125,6 @@ public class BuildingSystem : MonoBehaviour
         obj.AddComponent<ObjectDrag>();
 
 
-    }
-    private string GetMissingResourcesMessage(GameObject building)
-    {
-        if (!buildingCosts.TryGetValue(building, out var cost))
-        {
-            return "Unknown building.";
-        }
-
-        List<string> missing = new List<string>();
-
-        if (resourceManager.wood < cost.wood) missing.Add($"Wood ({cost.wood - resourceManager.wood} more needed)");
-        if (resourceManager.stone < cost.stone) missing.Add($"Stone ({cost.stone - resourceManager.stone} more needed)");
-        if (resourceManager.gold < cost.gold) missing.Add($"Gold ({cost.gold - resourceManager.gold} more needed)");
-
-        return string.Join(", ", missing);
     }
     private bool CanBePlaced(PlaceableObject placeableObject)
     {

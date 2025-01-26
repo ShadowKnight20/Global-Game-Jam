@@ -62,6 +62,8 @@ public Vector3 Size { get; private set; }
 
         Placed = true;
 
+
+
         //invoke events of placement
     }
 }

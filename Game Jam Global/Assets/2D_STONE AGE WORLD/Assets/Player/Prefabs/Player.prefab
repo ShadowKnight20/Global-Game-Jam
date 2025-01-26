@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5825867218610630443}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,9 @@ MonoBehaviour:
   moveSpeed: 8
   rotationSpeed: 200
   jumpForce: 5
+  groundTag: Ground
   isGrounded: 0
+  spriteTransform: {fileID: 4433625572471554}
 --- !u!1 &1853661805724542
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +114,7 @@ GameObject:
   - component: {fileID: 4677682518735630}
   - component: {fileID: 212945147968508160}
   - component: {fileID: 95788042208705282}
+  - component: {fileID: 681209803501418890}
   m_Layer: 0
   m_Name: Anim
   m_TagString: Untagged
@@ -208,6 +211,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &681209803501418890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853661805724542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847993c037bba4d45b39def2233b1989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovementScript: {fileID: -5825867218610630443}
 --- !u!1 &1949620434755396
 GameObject:
   m_ObjectHideFlags: 0

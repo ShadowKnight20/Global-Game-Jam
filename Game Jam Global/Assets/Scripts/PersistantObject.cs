@@ -12,6 +12,6 @@ public class PersistantObject : MonoBehaviour
         //}
 
         // Make this object persist across scene loads
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
     }
 }
